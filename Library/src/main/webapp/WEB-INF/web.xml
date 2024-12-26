@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- 로그인 & 로그아웃 -->
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.min.edu.ctrl.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/loginServlet.do</url-pattern>
+	</servlet-mapping>
+		
+	<!-- 회원 상세정보(마이페이지) -->
+	<servlet>
+		<servlet-name>userInfo</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UserInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userInfo</servlet-name>
+		<url-pattern>/userInfo.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 회원정보수정(폼, 입력) -->
+	<servlet>
+		<servlet-name>userModify</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UserModifyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userModify</servlet-name>
+		<url-pattern>/userModifyServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 회원탈퇴 -->	
+	<servlet>
+		<servlet-name>delUser</servlet-name>
+		<servlet-class>com.min.edu.ctrl.DelUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delUser</servlet-name>
+		<url-pattern>/delUserServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 회원가입(폼, 입력) -->	
+	<servlet>
+		<servlet-name>regist</servlet-name>
+		<servlet-class>com.min.edu.ctrl.RegistServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>regist</servlet-name>
+		<url-pattern>/registServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 아이디 중복 검사 -->	
+	<servlet>
+		<servlet-name>duplicateId</servlet-name>
+		<servlet-class>com.min.edu.ctrl.DuplicateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>duplicateId</servlet-name>
+		<url-pattern>/duplicateId.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 회원상태 전체 조회 -->	
+	<servlet>
+		<servlet-name>userListState</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UserListStateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userListState</servlet-name>
+		<url-pattern>/userListState.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 회원 사용자 전체조회 -->	
+	<servlet>
+		<servlet-name>userList</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UserListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userList</servlet-name>
+		<url-pattern>/userListServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 권한수정(폼, 입력) -->	
+	<servlet>
+		<servlet-name>authUpdate</servlet-name>
+		<servlet-class>com.min.edu.ctrl.AuthUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>authUpdate</servlet-name>
+		<url-pattern>/authUpdate.do</url-pattern>
+	</servlet-mapping>
+
+</web-app>

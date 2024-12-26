@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.model.MemberDaoImpl">
+
+<!-- 전체사용자조회	getAllUserStatus -->
+<select id="getAllUserStatus" resultType="MemberDto">
+	SELECT MEMBER_ID, NAME, ID, PASSWORD, TEL, IS_ENABLED, AUTH 
+	FROM MEMBER
+</select>
+
+<!-- 사용 가능한 사용자 조회	getAllUser -->
+<select id="getAllUser" resultType="MemberDto">
+	SELECT MEMBER_ID, NAME, ID, PASSWORD, TEL, IS_ENABLED, AUTH
+	FROM MEMBER
+	WHERE IS_ENABLED = 'Y'
+</select>
+
+<!-- 권한 수정	updateAuthUser -->
+<update id="updateAuthUser" parameterType="java.util.Map">
+	UPDATE MEMBER SET AUTH =#{auth}
+	WHERE MEMBER_ID=#{member_id}
+</update>
+
+<!-- 사용자 입력	insertUser -->
+<insert id="insertUser" parameterType="MemberDto">
+	INSERT INTO MEMBER (MEMBER_ID, NAME, ID, PASSWORD, TEL, IS_ENABLED)
+	VALUES (MEMBER_ID_SEQ.NEXTVAL, #{name}, #{id}, #{password}, #{tel}, 'Y')
+</insert>
+
+<!-- 로그인	getLogin -->
+<select id="getLogin" resultType="MemberDto">
+	SELECT MEMBER_ID, NAME, ID, AUTH
+	FROM MEMBER
+	WHERE ID=#{id} AND PASSWORD =#{password}
+</select>
+
+<!-- 사용자 상세정보	getUserInfo -->
+<select id="getUserInfo" resultType="MemberDto">
+	SELECT MEMBER_ID, NAME, ID, PASSWORD, TEL, AUTH
+	FROM MEMBER
+	WHERE MEMBER_ID =#{member_id}
+</select>
+
+<!-- 사용자 정보 수정	updateUserInfo -->
+<insert id="updateUserInfo">
+	UPDATE MEMBER 
+		<set>
+			<if test="password != null and password !=''">PASSWORD =#{password},</if>
+			<if test="tel != null and tel !=''">TEL =#{tel},</if>
+		</set>
+	WHERE MEMBER_ID =#{member_id}
+</insert>
+
+<!-- 사용자 탈퇴	delUser -->
+<update id="delUser">
+	UPDATE MEMBER SET IS_ENABLED = 'N'
+	WHERE MEMBER_ID =#{member_id}
+</update>
+
+<!-- 아이디 중복체크	duplicateId -->
+<select id="duplicateId" resultType="java.lang.String">
+	SELECT ID
+	FROM MEMBER
+	WHERE ID =#{id}
+</select>
+	
+
+</mapper>
