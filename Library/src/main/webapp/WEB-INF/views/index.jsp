@@ -24,14 +24,10 @@
 			<img alt="도서관 로고" src="./img/library_logo.jpg" class="logo">
 			<h2>지예유 도서관</h2>
 			<form action="./loginServlet.do" method="post">
-				<input type="text" placeholder="도서관 아이디" required>
-				<input type="password" placeholder="비밀번호(8~15자리)" required>
+				<input type="text" name="id" placeholder="도서관 아이디" required>
+				<input type="password" name="password" placeholder="비밀번호(8~15자리)" required>
 				<button type="submit" class="login-btn">로그인</button>
 			</form>
-			<div class="social-login">
-				<button class="naver-btn">네이버 로그인</button>
-				<button class="kakao-btn">카카오 로그인</button>
-			</div>
 			<div class="links">
 				<a href="#">아이디찾기</a>|
 				<a href="#">비밀번호 재설정</a>|

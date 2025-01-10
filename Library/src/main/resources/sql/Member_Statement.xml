@@ -10,7 +10,7 @@
 
 <!-- 사용 가능한 사용자 조회	getAllUser -->
 <select id="getAllUser" resultType="MemberDto">
-	SELECT MEMBER_ID, NAME, ID, PASSWORD, TEL, IS_ENABLED, AUTH
+	SELECT MEMBER_ID, NAME, ID, AUTH
 	FROM MEMBER
 	WHERE IS_ENABLED = 'Y'
 </select>

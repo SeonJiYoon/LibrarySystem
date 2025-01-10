@@ -7,6 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./css/mainpage.css">
+
+<script type="text/javascript">
+	function regist() {
+		location.href="./registServlet.do";
+	}
+</script>
+
 </head>
 <%
 	MemberDto loginDto = (MemberDto)session.getAttribute("loginDto");
@@ -21,7 +28,7 @@
 			<button>열린공간</button>
 			<button>나의도서관</button>
 			<button><a href="./mainlogin.do">로그인</a></button>
-			<button>회원가입</button>
+			<button onclick="regist()">회원가입</button>
 	</div>
 		<div class="logo">
 			<img alt="도서관 로고" src="./img/library.jpg" class="library-image">

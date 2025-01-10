@@ -103,5 +103,27 @@
 		<servlet-name>authUpdate</servlet-name>
 		<url-pattern>/authUpdate.do</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 필터. 로그인 없이 호출할 수 있는 페이지 -->
+	<filter>
+		<filter-name>accessFilter</filter-name>
+		<filter-class>com.min.edu.filter.AccessFilter</filter-class>
+		<init-param>
+			<param-name>excludeURL</param-name>
+			<param-value>/loginServlet.do,/registServlet.do,/duplicateId.do,/js/login.js</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>accessFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 잘못된 페이지 요청 Error 페이지 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/err/error.html</location>
+	</error-page>
+	
+	
 
 </web-app>
