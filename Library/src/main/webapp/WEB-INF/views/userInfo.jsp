@@ -14,21 +14,17 @@
 	<table>
 		<thead>
 			<tr>
-				<th>시퀀스</th>
 				<th>이름</th>
 				<th>아이디</th>
 				<th>전화번호</th>
-				<th>사용여부</th>
 				<th>권한</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td><%=dto.getMember_id()%></td>
 				<td><%=dto.getName()%></td>
 				<td><%=dto.getId()%></td>
 				<td><%=dto.getTel()%></td>
-				<td><%=dto.getIs_enabled()%></td>
 				<td><%=dto.getAuth().equalsIgnoreCase("ADMIN")?"관리자":"사용자"%></td>
 			</tr>
 		</tbody>
